@@ -22,7 +22,7 @@ spinner.className = "spinner-barsfade";
 
 // Crear la imagen del logo
 var logo = document.createElement("img");
-logo.src = "https://firebasestorage.googleapis.com/v0/b/energie-check-24.appspot.com/o/LogoBlanco_EnergieCheck24.svg?alt=media&token=dab4a948-08f8-4801-83be-082f09d9c093";
+logo.src = "https://cdn.jsdelivr.net/gh/sabatage3/preloaderApp@main/Preloader-Energie-Check-24.gif";
 logo.alt = "Logo";
 
 // Agregar el spinner y la imagen al contenedor
