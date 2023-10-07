@@ -1,32 +1,50 @@
-const canvas = document.createElement("canvas");
-canvas.width = 100;
-canvas.height = 100;
-document.body.appendChild(canvas);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner con Logo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: black;
+        }
 
-// Obtiene el contexto de dibujo del canvas
-const ctx = canvas.getContext("2d");
+        .spinner-container {
+            display: flex;
+            align-items: center;
+        }
 
-// Inicializa el spinner
-ctx.fillStyle = "#000";
-ctx.beginPath();
-ctx.arc(50, 50, 25, 0, 2 * Math.PI);
-ctx.fill();
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 4px solid transparent;
+            border-top: 4px solid #FEA200;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
 
-// Crea un temporizador para actualizar el spinner
-const timer = setInterval(() => {
-  // Rota el spinner
-  ctx.rotate(0.01);
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-  // Redibuja el spinner
-  ctx.fillStyle = "#000";
-  ctx.beginPath();
-  ctx.arc(50, 50, 25, 0, 2 * Math.PI);
-  ctx.fill();
-}, 10);
-
-// Detiene el temporizador al salir de la página
-window.addEventListener("unload", () => {
-  clearInterval(timer);
-});
-
-
+        .logo {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="spinner-container">
+        <div class="spinner"></div>
+        <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/energie-check-24.appspot.com/o/LogoBlanco_EnergieCheck24.svg?alt=media&token=dab4a948-08f8-4801-83be-082f09d9c093" alt="Logo">
+    </div>
+</body>
+</html>
