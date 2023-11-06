@@ -26,7 +26,6 @@ svgImage.style.cssText = `
     left: 50%;
     transform: translate(-50%, -50%);
 `;
-svgImage.style.display = 'none';
 
 // Append the elements to the body
 document.body.appendChild(overlay);
@@ -34,8 +33,9 @@ document.body.appendChild(svgImage);
 
 // Function to hide the overlay and display the SVG
 function hideOverlay() {
-    overlay.style.display = 'none';
-    svgImage.style.display = 'block';
+    // Remove the preloader elements from the DOM
+    document.body.removeChild(overlay);
+    document.body.removeChild(svgImage);
 }
 
 // Add an event listener to hide the overlay when all external JS files are loaded
