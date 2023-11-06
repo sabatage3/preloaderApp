@@ -26,20 +26,27 @@ svgImage.style.cssText = `
     left: 50%;
     transform: translate(-50%, -50%);
 `;
+svgImage.style.display = 'none';
 
 // Append the elements to the body
 document.body.appendChild(overlay);
 document.body.appendChild(svgImage);
 
-// Function to hide the overlay and remove the elements
+// Function to hide the overlay and display the SVG
 function hideOverlay() {
-    // Remove the preloader elements from the DOM
-    document.body.removeChild(overlay);
-    document.body.removeChild(svgImage);
+    overlay.style.display = 'none';
+    svgImage.style.display = 'block';
 }
 
-// Add an event listener to hide the overlay when the project has loaded
-window.addEventListener('load', () => {
-    // Hide the overlay and remove the elements
-    hideOverlay();
-});
+// Add an event listener to hide the overlay when all resources are loaded
+document.addEventListener('DOMContentLoaded', checkResourcesLoaded);
+window.addEventListener('load', checkResourcesLoaded);
+
+// Función para comprobar si todos los recursos se han cargado
+function checkResourcesLoaded() {
+  if (document.readyState === 'complete') { // Verifica si el DOM ya está completamente cargado
+    // Oculta y elimina el preloader
+    overlay.style.display = 'none';
+    svgImage.style.display = 'none';
+  }
+}
