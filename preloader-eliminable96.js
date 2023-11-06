@@ -31,22 +31,3 @@ svgImage.style.display = 'none';
 // Append the elements to the body
 document.body.appendChild(overlay);
 document.body.appendChild(svgImage);
-
-// Function to hide the overlay and display the SVG
-function hideOverlay() {
-    overlay.style.display = 'none';
-    svgImage.style.display = 'block';
-}
-
-// Add an event listener to hide the overlay when all resources are loaded
-document.addEventListener('DOMContentLoaded', checkResourcesLoaded);
-window.addEventListener('load', checkResourcesLoaded);
-
-// Función para comprobar si todos los recursos se han cargado
-function checkResourcesLoaded() {
-  if (document.readyState === 'complete') { // Verifica si el DOM ya está completamente cargado
-    // Oculta y elimina el preloader
-    overlay.style.display = 'none';
-    svgImage.style.display = 'none';
-  }
-}
