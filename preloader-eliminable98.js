@@ -31,7 +31,7 @@ svgImage.style.cssText = `
 document.body.appendChild(overlay);
 document.body.appendChild(svgImage);
 
-// Function to hide the overlay and display the SVG
+// Function to hide the overlay and remove the elements
 function hideOverlay() {
     // Remove the preloader elements from the DOM
     document.body.removeChild(overlay);
@@ -39,4 +39,7 @@ function hideOverlay() {
 }
 
 // Add an event listener to hide the overlay when the project has loaded
-window.addEventListener('load', hideOverlay);
+window.addEventListener('load', () => {
+    // Hide the overlay and remove the elements
+    hideOverlay();
+});
