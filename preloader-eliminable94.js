@@ -39,7 +39,7 @@ function hideOverlay() {
     setTimeout(() => {
         document.body.removeChild(overlay);
         document.body.removeChild(svgImage);
-    }, 100);
+    }, 10000);
 }
 
 // Add an event listener to hide the overlay when all resources are loaded
