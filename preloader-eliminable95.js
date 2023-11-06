@@ -10,7 +10,7 @@ overlay.style.cssText = `
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0);
     z-index: 999;
 `;
 
@@ -26,8 +26,22 @@ svgImage.style.cssText = `
     left: 50%;
     transform: translate(-50%, -50%);
 `;
-svgImage.style.display = 'none';
 
 // Append the elements to the body
 document.body.appendChild(overlay);
 document.body.appendChild(svgImage);
+
+// Function to hide the overlay and display the SVG
+function hideOverlay() {
+    overlay.style.display = 'none';
+    svgImage.style.display = 'block';
+    // Agregar una función para eliminar el preloader después de 10 segundos (10000 milisegundos)
+    setTimeout(() => {
+        document.body.removeChild(overlay);
+        document.body.removeChild(svgImage);
+    }, 100);
+}
+
+// Add an event listener to hide the overlay when all resources are loaded
+document.addEventListener('DOMContentLoaded', hideOverlay);
+window.addEventListener('load', hideOverlay);
