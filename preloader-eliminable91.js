@@ -16,7 +16,7 @@ overlay.style.cssText = `
 
 const svgImage = document.createElement('img');
 svgImage.id = 'svgImage';
-svgImage.src = 'https://cdn.jsdelivr.net/gh/sabatage3/preloaderApp@main/preloaderRapido.gif';
+svgImage.src = 'https://cdn.jsdelivr.net/gh/sabatage3/preloaderApp@main/Energie-check24-preloaderRapido.gif';
 svgImage.style.cssText = `
     max-width: 100%;
     max-height: 100%;
